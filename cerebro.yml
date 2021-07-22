@@ -4,7 +4,7 @@
   roles:
     - role: cerebro
   vars:
-    cerebro_version: 0.8.3
+    cerebro_version: 0.9.4
     cerebro_force_reinstall: false
     cerebro_home_dir: /opt/cerebro
     cerebro_host: "0.0.0.0"
