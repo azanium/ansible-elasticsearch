@@ -1,52 +1,17 @@
 ---
-- hosts: node1.local
+- hosts: dev
+  remote_user: root
   roles:
     - role: elastic.elasticsearch
   vars:
     es_heap_size: "1g"
     es_data_dirs:
-      - "/opt/elasticsearch"
+      - "/data/es"
     es_config:
-      cluster.name: "test-cluster"
-      cluster.initial_master_nodes: "node1.local"
-      discovery.seed_hosts: "node1.local:9300"
-      http.port: 9200
-      node.data: false
-      node.master: true
-      bootstrap.memory_lock: false
-    es_plugins:
-     - plugin: ingest-attachment
-
-- hosts: node2.local
-  roles:
-    - role: elastic.elasticsearch
-  vars:
-    es_heap_size: "1g"
-    es_data_dirs:
-      - "/opt/elasticsearch"
-    es_config:
-      cluster.name: "test-cluster"
-      discovery.seed_hosts: "node2.local:9300"
+      cluster.name: "aza"
+      cluster.initial_master_nodes: "192.168.56.101"
+      discovery.seed_hosts: "192.168.56.101"
       http.port: 9200
       node.data: true
-      node.master: false
       bootstrap.memory_lock: false
-    es_plugins:
-      - plugin: ingest-attachment
-
-- hosts: node3.local
-  roles:
-    - role: elastic.elasticsearch
-  vars:
-    es_heap_size: "1g"
-    es_data_dirs:
-      - "/opt/elasticsearch"
-    es_config:
-      cluster.name: "test-cluster"
-      discovery.seed_hosts: "node3.local:9300"
-      http.port: 9200
-      node.data: true
-      node.master: false
-      bootstrap.memory_lock: false
-    es_plugins:
-      - plugin: ingest-attachment
+ 
