@@ -1,4 +1,0 @@
-- src: http://github.com/elastic/ansible-elasticsearch.git
-  scm: git
-  version: 1.0.0
-  name: elasticsearch
