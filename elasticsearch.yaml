@@ -2,16 +2,17 @@
 - hosts: dev
   remote_user: root
   roles:
-    - role: elastic.elasticsearch
+    - role: elasticsearch
   vars:
-    es_heap_size: "1g"
+    es_heap_size: "256m"
     es_data_dirs:
       - "/data/es"
     es_config:
       cluster.name: "aza"
-      cluster.initial_master_nodes: "192.168.56.101"
-      discovery.seed_hosts: "192.168.56.101"
+      cluster.initial_master_nodes: "143.198.198.199"
+      discovery.seed_hosts: "143.198.198.199,143.198.198.220"
       http.port: 9200
+      network.host: 0.0.0.0
       node.data: true
       bootstrap.memory_lock: false
  
